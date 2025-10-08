@@ -11,15 +11,20 @@ default_requirements:
   WAITER: 1
   SANDWICH: 1
 
+# Weekend requirements (automatically applied to all Saturdays and Sundays)
+weekend_requirements:
+  MANAGER: 2
+  BARISTA: 1
+  WAITER: 2
+  SANDWICH: 1
+
+# Date-specific overrides (for special days)
 overrides:
-  "2025-09-06":  # Saturday
-    MANAGER: 2
-    BARISTA: 1
-    WAITER: 2
-  "2025-09-07":  # Sunday
-    MANAGER: 2
-    BARISTA: 1
-    WAITER: 2
+  # Add specific date overrides here if needed
+  # "2025-12-25":  # Christmas
+  #   MANAGER: 3
+  #   BARISTA: 2
+  #   WAITER: 3
 
 hours_caps:
   max_hours_per_week_per_employee: 40
@@ -56,17 +61,17 @@ role_time_windows:
 # Role-based weekly hours policy and penalties
 hours_policy:
   MANAGER:
-    target_min: 38
+    target_min: 32
     target_max: 40
     hard_cap: 40
   BARISTA:
     target_min: 16
-    target_max: 32
-    hard_cap: 38
+    target_max: 40
+    hard_cap: 40
   WAITER:
     target_min: 16
-    target_max: 32
-    hard_cap: 38
+    target_max: 40
+    hard_cap: 40
   SANDWICH:
     target_min: 16
     target_max: 32

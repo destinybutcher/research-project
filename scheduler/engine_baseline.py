@@ -27,9 +27,20 @@ class Assignment:
 
 def build_requirements_for_day(date_str: str, cfg: SchedulerConfig) -> Dict[str, int]:
     req = dict(cfg.default_requirements)
+    
+    # Check if it's a weekend (Saturday or Sunday)
+    date_obj = pd.Timestamp(date_str).date()
+    day_name = pd.Timestamp(date_str).day_name()
+    if day_name in ["Saturday", "Sunday"]:
+        # Use weekend requirements
+        for role, count in cfg.weekend_requirements.items():
+            req[role] = count
+    
+    # Apply date-specific overrides (takes precedence)
     if date_str in cfg.overrides:
         for role, count in cfg.overrides[date_str].items():
             req[role] = count
+    
     return req
 
 

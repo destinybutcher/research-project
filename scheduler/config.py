@@ -58,6 +58,12 @@ class SchedulerConfig:
         }
     )
     overrides: Dict[str, Dict[str, int]] = field(default_factory=dict)
+    weekend_requirements: Dict[str, int] = field(default_factory=lambda: {
+        "MANAGER": 2,
+        "BARISTA": 1,
+        "WAITER": 2,
+        "SANDWICH": 1,
+    })
     hours_caps: HoursCaps = field(default_factory=HoursCaps)
     weights: Weights = field(default_factory=Weights)
     busy_days: list[str] = field(default_factory=lambda: ["Saturday", "Sunday"])  # names
@@ -105,6 +111,15 @@ def load_config(path: str | Path) -> SchedulerConfig:
     overrides: Dict[str, Dict[str, int]] = {}
     for date_str, role_map in overrides_in.items():
         overrides[date_str] = {k.upper(): int(v) for k, v in (role_map or {}).items()}
+    
+    weekend_requirements = {
+        k.upper(): int(v) for k, v in (raw.get("weekend_requirements") or {}).items()
+    } or {
+        "MANAGER": 2,
+        "BARISTA": 1,
+        "WAITER": 2,
+        "SANDWICH": 1,
+    }
 
     hc = raw.get("hours_caps", {})
     hours_caps = HoursCaps(
@@ -152,6 +167,7 @@ def load_config(path: str | Path) -> SchedulerConfig:
         schedule_busy_days_first=schedule_busy_days_first,
         reserve_hours_for_weekend=reserve_hours_for_weekend,
         weekend_fallback=weekend_fallback,
+        weekend_requirements=weekend_requirements,
     )
     _validate_config(cfg)
     return cfg
