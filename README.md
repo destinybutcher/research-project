@@ -45,8 +45,7 @@ weights:
   fairness_penalty_per_std_above_median: 0.25
 ```
 
-### Commands
-1. Modular Architecture
+ ### Modular Architecture
 scheduler/
 ├── config.py          # Configuration management
 ├── data_io.py         # Data loading/saving
@@ -56,13 +55,13 @@ scheduler/
 ├── validator.py       # Post-generation validation
 ├── feedback.py        # Future ML integration hooks
 └── cli.py            # Command-line interface
-2. Configuration-Driven Design
+### Configuration-Driven Design
 YAML-based configuration for flexible business rules
 Role-based policies (hours, requirements, time windows)
 Date-specific overrides for special days
 Weighted scoring parameters for optimization
 
-Core Algorithms & Techniques
+### Core Algorithms & Techniques
 1. Greedy Algorithm with Backtracking
 Key Features:
 Constraint satisfaction during assignment
@@ -86,7 +85,7 @@ Fairness within role cohorts
 Weekend coverage requirements
 
 
- Data Structures & Processing
+ ### Data Structures & Processing
 1. Pandas DataFrames
 Employees: Skills, roles, personal info
 Shifts: Dates, week IDs, shift IDs
@@ -95,7 +94,7 @@ Assignments: Generated schedule with timestamps
 Timezone-aware: Australia/Sydney (AEST/AEDT)
 
 
-Validation & Quality Assurance
+### Validation & Quality Assurance
 1. Multi-Layer Validation
 Referential integrity: All IDs exist
 Constraint checking: No overlaps, hours caps
@@ -109,7 +108,7 @@ CSV exports for external systems
 
 
 
-Performance & Scalability
+### Performance & Scalability
 1. Algorithm Complexity
 Time: O(D × R × S × E) where D=days, R=roles, S=slots, E=employees
 Space: O(E + A) where A=assignments
