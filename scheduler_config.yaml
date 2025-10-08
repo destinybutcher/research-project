@@ -1,0 +1,96 @@
+timezone: "Australia/Sydney"
+
+default_shift:
+  start: "07:00"
+  end: "15:00"
+  duration_hours: 8
+
+default_requirements:
+  MANAGER: 1
+  BARISTA: 1
+  WAITER: 1
+  SANDWICH: 1
+
+overrides:
+  "2025-09-06":  # Saturday
+    MANAGER: 2
+    BARISTA: 1
+    WAITER: 2
+  "2025-09-07":  # Sunday
+    MANAGER: 2
+    BARISTA: 1
+    WAITER: 2
+
+hours_caps:
+  max_hours_per_week_per_employee: 40
+
+weights:
+  manager_weight: 1.0
+  coffee: 1.0
+  sandwich: 1.0
+  speed: 0.5
+  customer_service: 0.5
+  fairness_penalty_per_std_above_median: 0.25
+
+busy_days: ["Saturday", "Sunday"]
+schedule_busy_days_first: true
+
+role_time_windows:
+  BARISTA:
+    weekday: {start: "07:00", end: "15:00"}
+    weekend_staggered:
+      - {start: "07:00", end: "12:00"}
+      - {start: "11:00", end: "15:00"}
+  WAITER:
+    weekday: {start: "07:00", end: "15:00"}
+    weekend_staggered:
+      - {start: "07:00", end: "12:00"}
+      - {start: "11:00", end: "15:00"}
+  SANDWICH:
+    weekday:
+      - {start: "05:00", end: "12:00"}
+    weekend:
+      - {start: "05:00", end: "13:30"}
+      - {start: "06:00", end: "13:30"}
+
+# Role-based weekly hours policy and penalties
+hours_policy:
+  MANAGER:
+    target_min: 38
+    target_max: 40
+    hard_cap: 40
+  BARISTA:
+    target_min: 16
+    target_max: 32
+    hard_cap: 38
+  WAITER:
+    target_min: 16
+    target_max: 32
+    hard_cap: 38
+  SANDWICH:
+    target_min: 16
+    target_max: 32
+    hard_cap: 36
+
+hours_penalties:
+  per_hour_below_target: 0.5
+  per_hour_above_target: 0.75
+
+global_hard_cap: 45
+
+reserve_hours_for_weekend:
+  BARISTA: 8
+  WAITER: 4
+  SANDWICH: 6
+
+weekend_fallback:
+  BARISTA:
+    enabled: true
+    min_required: 1
+    allow_single_full_shift: true
+  WAITER:
+    enabled: true
+    min_required: 1
+    allow_single_full_shift: true
+
+
