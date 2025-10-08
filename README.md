@@ -1,6 +1,6 @@
 # Café Scheduler (Milestone 1)
 
-AI-assisted rostering baseline for a café. Generates a valid weekly schedule from CSVs respecting roles, skills, and hard constraints.
+## RUN SCHEDULER_PART1.IPYNB to see
 
 ## Quickstart
 
