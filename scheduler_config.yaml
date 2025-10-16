@@ -35,7 +35,7 @@ weights:
   sandwich: 1.0
   speed: 0.5
   customer_service: 0.5
-  fairness_penalty_per_std_above_median: 0.25
+  fairness_penalty_per_std_above_median: 2.0  # Increased to prioritize fairness
 
 busy_days: ["Saturday", "Sunday"]
 schedule_busy_days_first: true

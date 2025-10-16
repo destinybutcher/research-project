@@ -1,0 +1,23 @@
+# AI-Assisted Café Rostering System
+# Requirements for v2 Architecture
+
+# Core dependencies
+pandas>=2.0.0
+pyyaml>=6.0
+sqlalchemy>=2.0.0
+
+# Optional: PostgreSQL support
+# psycopg2-binary>=2.9.0
+
+# Optional: MySQL support
+# pymysql>=1.0.0
+
+# Development dependencies
+pytest>=7.0.0
+pytest-cov>=4.0.0
+
+# Code quality
+# black>=23.0.0
+# flake8>=6.0.0
+# mypy>=1.0.0
+
