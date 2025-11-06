@@ -1,9 +1,0 @@
-employee_id,first_name,last_name,primary_role,skill_coffee,skill_sandwich,customer_service_rating,skill_speed
-1001,Max,Hayes,MANAGER,,,,
-1002,Mia,Stone,MANAGER,,,,
-1003,Wendy,Ng,WAITER,3,,5,3
-1004,Will,Brown,WAITER,3,,4,4
-1005,Bella,Tran,BARISTA,3,,3,3
-1006,Ben,Park,BARISTA,4,,4,4
-1007,Sam,Lee,SANDWICH,,5,,
-1008,Sara,Khan,SANDWICH,,4,,

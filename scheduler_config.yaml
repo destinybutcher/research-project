@@ -14,17 +14,13 @@ default_requirements:
 # Weekend requirements (automatically applied to all Saturdays and Sundays)
 weekend_requirements:
   MANAGER: 2
-  BARISTA: 1
+  BARISTA: 2
   WAITER: 2
   SANDWICH: 1
 
-# Date-specific overrides (for special days)
+
 overrides:
-  # Add specific date overrides here if needed
-  # "2025-12-25":  # Christmas
-  #   MANAGER: 3
-  #   BARISTA: 2
-  #   WAITER: 3
+ 
 
 hours_caps:
   max_hours_per_week_per_employee: 40
